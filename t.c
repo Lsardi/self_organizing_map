@@ -234,6 +234,31 @@ void lec_ligne(FILE * f, node* data)
 		t= malloc(sizeof(int)*nb_ligne);
 		t = tab_al(t,nb_ligne);
 
+		float dist = 0.;
+		float m =1.;
+		int x, y;
+
+		
+
+			
+			for (int j = 0; j < ligne; j++)
+			{
+				for (int k = 0; k < colone; k++)
+				{
+
+					dist =euclidien(data[0].vec,carte_neuronal[j][k].vecteur,4);
+					printf("distance = %f\n",dist);
+					if (m>dist)
+					{
+						m = dist;
+						x= j;
+						y =k;
+					}	
+				}
+			}
+
+		printf("plus petite distante =  %f coordoné %d %d \n",m,x,y);
+
 	//printf("distance = %f\n",euclidien(data[0].vec,carte_neuronal[0][0].vecteur,4));
 	//carte_neuronal[0][0].vecteur[1] = moy_vec[1]+Fale(-0.002,0.005);
 	//	printf("vec 1 = %f vec 2 = %f vec 3 = %f vec 4 = %f\n",carte_neuronal[0][0].vecteur[1],carte_neuronal[0][1].vecteur[1],carte_neuronal[0][2].vecteur[1],carte_neuronal[0][3].vecteur[1]);
